@@ -1,11 +1,13 @@
 import axios from "axios";
-const API_BASE_URL = "http://localhost:5000/api/jobs/";
+
+const API_BASE_URL = "https://your-vercel-app.vercel.app/api/jobs/"; // Update with your Vercel URL
 
 export const fetchJobs = async (page = 1, limit = 50) => {
     try {
         const startId = (page - 1) * limit + 1;
-        const endId = Math.min(startId + limit - 1, 424); // Ensures we don't exceed 424 jobs
+        const endId = Math.min(startId + limit - 1, 424);
         const jobIds = Array.from({ length: endId - startId + 1 }, (_, i) => startId + i);
+
         const jobData = await Promise.all(
             jobIds.map(async (id) => {
                 try {
