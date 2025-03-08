@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://your-vercel-app.vercel.app/api/jobs/"; // Update with your Vercel URL
+const API_BASE_URL = "https://placements-stats-cchv.vercel.app/api/jobs/"; // Update with your Vercel URL
 
 export const fetchJobs = async (page = 1, limit = 50) => {
     try {
