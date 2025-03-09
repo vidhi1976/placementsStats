@@ -12,7 +12,7 @@ export const fetchJobs = async (page = 1, limit = 50) => {
         const jobData = await Promise.all(
             jobIds.map(async (id) => {
                 try {
-                    const response = await axios.get(`${LOCAL_API_BASE_URL}${id}`);
+                    const response = await axios.get(`${API_BASE_URL}${id}`);
                     return response.data;
                 } catch (error) {
                     console.error(`Error fetching job ID ${id}:`, error);
