@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL = "https://placements-stats-server.vercel.app/api/jobs/"; // Update with your Vercel URL
+const LOCAL_API_BASE_URL = "http://localhost:5000/api/jobs/"; // Update with your Vercel URL
 
 export const fetchJobs = async (page = 1, limit = 50) => {
     try {
@@ -11,7 +12,7 @@ export const fetchJobs = async (page = 1, limit = 50) => {
         const jobData = await Promise.all(
             jobIds.map(async (id) => {
                 try {
-                    const response = await axios.get(`${API_BASE_URL}${id}`);
+                    const response = await axios.get(`${LOCAL_API_BASE_URL}${id}`);
                     return response.data;
                 } catch (error) {
                     console.error(`Error fetching job ID ${id}:`, error);
